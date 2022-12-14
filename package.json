@@ -1,0 +1,14 @@
+{
+  "name": "travel-app",
+  "version": "1.0.0",
+  "description": "Travel App Project for the Front End Web Developer course from Udacity",
+  "main": "webpack.dev.js",
+  "scripts": {
+    "test": "jest",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
