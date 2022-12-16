@@ -12,10 +12,12 @@ This project allows you to enter a city you want to travel to and a date. The we
 4. open the project folder and copy the path
 5. change the directory to the folder path: `cd path`
 6. install all npm packages you need: `npm install`
-7. get your personal API_KEY of the [APIx](x)
-8. rename the ***.env_sample*** file to ***.env*** and insert your personal API Key.
+7. get your personal API_KEYs of [GeoNames](http://www.geonames.org/export/web-services.html), [Weatherbit](https://www.weatherbit.io/account/dashboard), [Pixabay](https://pixabay.com/api/docs/)
+8. rename the ***.env_sample*** file to ***.env*** and insert your personal API Keys.
     ```javascript
-        API_KEY=*************
+        GEO_KEY=**********
+        WEATHER_KEY=**********
+        PIXABAY_KEY=**********
     ```
 9. build the project: `npm run build-prod`
 10. start a local server: `npm run start`
