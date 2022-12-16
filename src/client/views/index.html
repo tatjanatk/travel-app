@@ -21,13 +21,17 @@
 
             <section id="form">
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="url" type="text" name="input" value="" placeholder="Type in a URL...">
-                    <input id="submit" type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <div>City:</div>
+                    <input id="city" type="text" name="city" placeholder="Type in a City name..." required>
+                    <div>Date:</div>
+                    <input id="date" type="date" name="date" value="" required>
+                    <input id="submit" type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
             <section id="results">
-
+                <img id="city-img">
+                <div id="weather-data">Weather data will appear here</div>
             </section>
         </main>
 
