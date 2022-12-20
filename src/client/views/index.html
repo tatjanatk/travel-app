@@ -18,21 +18,28 @@
 
         <main>
             <h1>Travel App</h1>
+            
+            <section>
+                This website will provide you with a photo of your entered destination and the weather for the next 7 days.
+                Unfortunately, it was not possible to get the weather data from the start to the end date.
+            </section>
+
 
             <section id="form">
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <label for="city">City:</label><br>
+                    <label for="city" id="city-label">City:</label><br>
                     <input id="city" type="text" name="city" placeholder="Type in a City name..." required><br>
                     <label for="start">Start Date:</label><br>
                     <input type="date" id="start" name="start"><br>
                     <label for="end">End Date:</label><br>
                     <input type="date" id="end" name="end"><br><br>
-                    <input id="submit" type="submit" value="Get Data" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <input id="submit" type="submit" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
             <section id="results">
                 <img id="city-img">
+                <h2 id="weather-heading">Weather for the next 7 days:</h2>
                 <div id="day1">
                     <img id="ico1">
                     <p id="date1"></p>
