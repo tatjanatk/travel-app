@@ -41,15 +41,21 @@ app.get('/', function (req, res) {
 
 
 // send data to app
-const handleInput = async(req, res) => {
-    const userInput = {
-        location: req.body.location
+const addData = async(req, res) => {
+    const input = {
+        location: req.body.location,
+        //date: req.body.date
     }
 
-    const imgObj = await getImg(userInput);
+    const img = await getImg(input);
+    const loc = await getLoc(input);
+    //const weather = await getWeather(loc);
+
     try {
         const allData = {
-            img: imgObj,
+            img: img,
+            loc: loc,
+            //weather: weather
         }
         res.send(allData);
     } catch (error) {
@@ -58,7 +64,7 @@ const handleInput = async(req, res) => {
 }
 
 // POST data
-app.post("/pixabay", handleInput);
+app.post("/apis", addData);
 
 
 // GET Pixabay Data
@@ -67,13 +73,34 @@ const getImg = async (input) => {
     const PixURL = "https://pixabay.com/api/?key=";
     const PixKey = process.env.PIXABAY_KEY;
     const url = PixURL+PixKey+"&q="+encodeURIComponent(location)+"&image_type=photo&category=places";
-    console.log('url');
+    console.log('URL: ' + url);
     const request = await fetch(url);
     try {
         const response = await request.json();
         console.log(response.hits[0]);
-        return response.hits[0]
+        return response.hits[0];
     } catch (error) {
         console.log("Error in getImg GET: " + error);
+        res.send(error);
+    }
+}
+
+// GET Geonames Data (lat, lon)
+const getLoc = async (input) => {
+    const location = input.location;
+    const GeoURL = "http://api.geonames.org/searchJSON?name=";
+    const GeoKey = process.env.GEO_KEY;
+    const url = GeoURL+encodeURIComponent(location)+'&maxRows=1&username='+GeoKey;
+    const request = await fetch(url);
+    try {
+      const response = await request.json();
+      if (response.geonames == null) {
+        console.log('No Location found!');
+      } else {
+        console.log(response.geonames[0]);
+        return response.geonames[0];
+      }
+    } catch (error) {
+        console.log('Error in getLoc GET: ' + error);
     }
 }

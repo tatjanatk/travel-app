@@ -5,11 +5,11 @@ export function handleSubmit(event) {
 
     //get input
     const city = document.getElementById('city').value.toString();
-    //const date = document.getElementById('date').value;
+    const date = document.getElementById('date').value;
 
     console.log("City: " + city + " Date: ");
 
-    Client.postData("http://localhost:3001/pixabay", {location: city});
+    Client.postData("http://localhost:3001/apis", {location: city, date: date});
 
 }
 
@@ -25,7 +25,7 @@ export const postData = async (url = '', data = {}) => {
       console.log('New Data: ' + newData);
       Client.updateUI(newData);
     } catch (error) {
-      console.log('ERROR in POST:', error);
+      alert('Location not found!');
     }
   }
 
