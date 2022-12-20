@@ -28,7 +28,7 @@ console.log(__dirname);
 // designates what port the app will listen to for incoming requests
 const port = 3001;
 
-const server = app.listen(port, listening ());
+app.listen(port, listening ());
 
 function listening() {
 	console.log(`server running on localhost:${port}`);
@@ -48,18 +48,19 @@ const addData = async(req, res) => {
     }
 
     const img = await getImg(input);
-    const loc = await getLoc(input);
+    const weather = await getLoc(input);
     //const weather = await getWeather(loc);
 
     try {
         const allData = {
             img: img,
-            loc: loc,
+            weather: weather,
             //weather: weather
         }
         res.send(allData);
     } catch (error) {
         console.log("Error: " + error);
+        res.send(error);
     }
 }
 
@@ -70,9 +71,9 @@ app.post("/apis", addData);
 // GET Pixabay Data
 const getImg = async (input) => {
     const location = input.location;
-    const PixURL = "https://pixabay.com/api/?key=";
-    const PixKey = process.env.PIXABAY_KEY;
-    const url = PixURL+PixKey+"&q="+encodeURIComponent(location)+"&image_type=photo&category=places";
+    const pixURL = "https://pixabay.com/api/?key=";
+    const pixKey = process.env.PIXABAY_KEY;
+    const url = pixURL+pixKey+"&q="+encodeURIComponent(location)+"&image_type=photo&category=places";
     console.log('URL: ' + url);
     const request = await fetch(url);
     try {
@@ -81,26 +82,45 @@ const getImg = async (input) => {
         return response.hits[0];
     } catch (error) {
         console.log("Error in getImg GET: " + error);
-        res.send(error);
     }
 }
 
 // GET Geonames Data (lat, lon)
 const getLoc = async (input) => {
     const location = input.location;
-    const GeoURL = "http://api.geonames.org/searchJSON?name=";
-    const GeoKey = process.env.GEO_KEY;
-    const url = GeoURL+encodeURIComponent(location)+'&maxRows=1&username='+GeoKey;
+    const geoURL = "http://api.geonames.org/searchJSON?name=";
+    const geoKey = process.env.GEO_KEY;
+    const url = geoURL+encodeURIComponent(location)+'&maxRows=1&username='+geoKey;
     const request = await fetch(url);
     try {
       const response = await request.json();
       if (response.geonames == null) {
         console.log('No Location found!');
       } else {
-        console.log(response.geonames[0]);
-        return response.geonames[0];
+        const locData = response.geonames[0];
+        const lat = locData.lat;
+        const lon = locData.lng;
+        console.log('Lat: ' + lat + ' Lon: ' + lon);
+        return getWeather(lat, lon);
       }
     } catch (error) {
         console.log('Error in getLoc GET: ' + error);
+    }
+}
+
+const getWeather = async (lat, lon) => {
+    console.log("putting data in Weatherbit Api: ", lat, lon);
+    const weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?";
+    const weatherKey = process.env.WEATHER_KEY;
+    const latlng = "lat="+lat+"&lon="+lon+"&key=";
+    const url = weatherURL+latlng+weatherKey;
+    console.log(url);
+    const request = await fetch(url);
+    try {
+       const response = await request.json();
+       console.log(response.data[0]);
+       return response.data[0];
+    } catch (error) {
+        console.log('Error in getWeather GET: ' + error);
     }
 }

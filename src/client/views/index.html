@@ -21,11 +21,13 @@
 
             <section id="form">
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <div>City:</div>
-                    <input id="city" type="text" name="city" placeholder="Type in a City name..." required>
-                    <div>Date:</div>
-                    <!--<input id="date" type="date" name="date" value="" required>-->
-                    <input id="submit" type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <label for="city">City:</label><br>
+                    <input id="city" type="text" name="city" placeholder="Type in a City name..." required><br>
+                    <label for="start">Start Date:</label><br>
+                    <input type="date" id="start" name="start"><br>
+                    <label for="end">End Date:</label><br>
+                    <input type="date" id="end" name="end"><br><br>
+                    <input id="submit" type="submit" value="Get Data" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
