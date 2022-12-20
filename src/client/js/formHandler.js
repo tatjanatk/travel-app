@@ -13,7 +13,7 @@ export function handleSubmit(event) {
     console.log("Start Date: " + start);
     console.log("End Date: " + end);
 
-    Client.postData("http://localhost:3001/apis", {location: city});
+    Client.postData("http://localhost:3001/apis", {location: city, start: start, end: end});
 
 }
 
@@ -35,7 +35,11 @@ export const postData = async (url = '', data = {}) => {
 export function updateUI(data) {
     console.log('Data:');
     console.log(data);
-    //console.log(data.img.webformatURL);
     document.getElementById("city-img").src = data.img.webformatURL;
-    //document.getElementById("weather-data").innerHTML = data.weather.
+    for (let i=1; i<=7; i++) {
+      document.getElementById(`ico${i}`).src = "https://www.weatherbit.io/static/img/icons/"+data.weather[i-1].weather.icon+".png";
+      document.getElementById(`date${i}`).innerHTML = data.weather[i-1].datetime;
+      document.getElementById(`high${i}`).innerHTML = data.weather[i-1].max_temp+"°C";
+      document.getElementById(`low${i}`).innerHTML = data.weather[i-1].min_temp+"°C";
+    }
 }

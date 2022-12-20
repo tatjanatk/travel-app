@@ -44,18 +44,17 @@ app.get('/', function (req, res) {
 const addData = async(req, res) => {
     const input = {
         location: req.body.location,
-        //date: req.body.date
+        //start: req.body.start,
+        //end: req.body.end
     }
 
     const img = await getImg(input);
     const weather = await getLoc(input);
-    //const weather = await getWeather(loc);
 
     try {
         const allData = {
             img: img,
             weather: weather,
-            //weather: weather
         }
         res.send(allData);
     } catch (error) {
@@ -108,18 +107,20 @@ const getLoc = async (input) => {
     }
 }
 
+// GET weather with data from geonames api
+// doesn't work with start & end date
 const getWeather = async (lat, lon) => {
     console.log("putting data in Weatherbit Api: ", lat, lon);
     const weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?";
     const weatherKey = process.env.WEATHER_KEY;
-    const latlng = "lat="+lat+"&lon="+lon+"&key=";
+    const latlng = "lat="+lat+"&lon="+lon+"&days=7&key=";
     const url = weatherURL+latlng+weatherKey;
     console.log(url);
     const request = await fetch(url);
     try {
        const response = await request.json();
-       console.log(response.data[0]);
-       return response.data[0];
+       console.log(response.data);
+       return response.data;
     } catch (error) {
         console.log('Error in getWeather GET: ' + error);
     }
