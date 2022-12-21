@@ -1,19 +1,28 @@
-$grey: #30343F;
-$white: #FAFAFF;
-$lavender: #E4D9FF;
-$blue: #273469;
-$dark-blue: #1E2749;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+$one: #0D1321;
+$two: #1D2D44;
+$three: #3E5C76;
+$four: #98b6dc;
+$five: #F0EBD8;
+$text: 'Ubuntu Condensed', sans-serif;
+$result: 'Lilita One', cursive;
+$heading: 'Marck Script', cursive;
 
 body {
+    font-family: $text;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: $dark-blue;
-    color: $white;
+    background-color: $five;
+    color: $one;
 }
 
 main {
     flex: 2;
+    color: $two;
 }
 
 section {
@@ -22,24 +31,26 @@ section {
     align-items: center;
     padding: 10px 40px;
     h1 {
-        font-weight: bold;
-        font-size: 40px;
+        font-size: 60px;
         visibility: hidden;
         margin-bottom: -10px;
+        font-family: $heading;
     }
     #weather {
         display: flex;
         flex-direction: row;
         align-items: center;
         img {
-            margin-bottom: -20px;
-            margin-top: -20px;
+            margin: -15px 10px 10px 5px;
+            box-shadow: 0px 0px 0px $two;
         }
     }
     div {
         font-size: 18px;
         text-align: center;
         margin-top: -5px;
+        font-family: $result;
+        color: $two;
     }
     p {
         padding: 10px;
@@ -49,5 +60,6 @@ section {
         display: block;
         margin: 50px auto;
         border-radius: 10px;
+        box-shadow: 5px 5px 5px $one;
     }
 }

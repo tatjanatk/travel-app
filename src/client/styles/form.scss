@@ -3,10 +3,11 @@
 form {
     border-radius: 10px;
     padding: 20px;
-    background-color: $lavender;
+    background-color: $four;
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-shadow: 5px 5px 5px $one;
 }
 
 input {
@@ -35,16 +36,17 @@ label {
 }
 
 #submit {
-    background-color: $dark-blue;
-    border: 2px solid $dark-blue;
+    background-color: $one;
+    border: 2px solid $one;
     border-radius: 5px;
-    color: $white;
+    color: $five;
     font-size: 18px;
     margin-left: 20px;
     width: 10%;
 
     &:hover {
-        background-color: $blue;
+        background-color: $two;
+        border: 2px solid $two;
         cursor: pointer;
     }
 }

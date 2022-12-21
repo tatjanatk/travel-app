@@ -52,7 +52,7 @@ export function updateUI(data) {
     const days = daysBetween(start, end); 
 
     document.getElementById("city-name").style.visibility = "visible";
-    document.getElementById("city-name").innerHTML = city.charAt(0).toUpperCase() + city.slice(1) + " for " + days + " days";
+    document.getElementById("city-name").innerHTML = city.charAt(0).toUpperCase() + city.slice(1) + ", " + days + " days";
 
     document.getElementById("city-img").src = data.img.webformatURL;
     for (let i=1; i<=7; i++) {
