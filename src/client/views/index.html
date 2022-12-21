@@ -8,80 +8,65 @@
     <body>
 
         <header>
-            <div id="logo">
-                logo
-            </div>
-            <div id="date">
-                date
-            </div>
+            <form class="" onsubmit="return Client.handleSubmit(event)">
+                <label for="city" id="city-label">City:</label><br>
+                <input id="city" type="text" name="city" placeholder="Type in a City name..." required><br>
+                <label for="start">Start Date:</label><br>
+                <input type="date" id="start" name="start"><br>
+                <label for="end">End Date:</label><br>
+                <input type="date" id="end" name="end"><br><br>
+                <input id="submit" type="submit" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+            </form>
         </header>
 
         <main>
-            <h1>Travel App</h1>
-            
-            <section>
-                This website will provide you with a photo of your entered destination and the weather for the next 7 days.
-                Unfortunately, it was not possible to get the weather data from the start to the end date.
-            </section>
-
-
-            <section id="form">
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <label for="city" id="city-label">City:</label><br>
-                    <input id="city" type="text" name="city" placeholder="Type in a City name..." required><br>
-                    <label for="start">Start Date:</label><br>
-                    <input type="date" id="start" name="start"><br>
-                    <label for="end">End Date:</label><br>
-                    <input type="date" id="end" name="end"><br><br>
-                    <input id="submit" type="submit" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-                </form>
-            </section>
-
             <section id="results">
+                <h1 id="city-name"></h1>
                 <img id="city-img">
-                <h2 id="weather-heading">Weather for the next 7 days:</h2>
-                <div id="day1">
-                    <img id="ico1">
-                    <p id="date1"></p>
-                    <p id="high1"></p>
-                    <p id="low1"></p>
-                </div>
-                <div id="day2">
-                    <img id="ico2">
-                    <p id="date2"></p>
-                    <p id="high2"></p>
-                    <p id="low2"></p>
-                </div>
-                <div id="day3">
-                    <img id="ico3">
-                    <p id="date3"></p>
-                    <p id="high3"></p>
-                    <p id="low3"></p>
-                </div>
-                <div id="day4">
-                    <img id="ico4">
-                    <p id="date4"></p>
-                    <p id="high4"></p>
-                    <p id="low4"></p>
-                </div>
-                <div id="day5">
-                    <img id="ico5">
-                    <p id="date5"></p>
-                    <p id="high5"></p>
-                    <p id="low5"></p>
-                </div>
-                <div id="day6">
-                    <img id="ico6">
-                    <p id="date6"></p>
-                    <p id="high6"></p>
-                    <p id="low6"></p>
-                </div>
-                <div id="day7">
-                    <img id="ico7">
-                    <p id="date7"></p>
-                    <p id="high7"></p>
-                    <p id="low7"></p>
-                </div>
+                <section id="weather">
+                    <div id="day1">
+                        <p id="date1"></p>
+                        <img id="ico1">
+                        <p id="high1"></p>
+                        <p id="low1"></p>
+                    </div>
+                    <div id="day2">
+                        <p id="date2"></p>
+                        <img id="ico2">
+                        <p id="high2"></p>
+                        <p id="low2"></p>
+                    </div>
+                    <div id="day3">
+                        <p id="date3"></p>
+                        <img id="ico3">
+                        <p id="high3"></p>
+                        <p id="low3"></p>
+                    </div>
+                    <div id="day4">
+                        <p id="date4"></p>
+                        <img id="ico4">
+                        <p id="high4"></p>
+                        <p id="low4"></p>
+                    </div>
+                    <div id="day5">
+                        <p id="date5"></p>
+                        <img id="ico5">
+                        <p id="high5"></p>
+                        <p id="low5"></p>
+                    </div>
+                    <div id="day6">
+                        <p id="date6"></p>
+                        <img id="ico6">
+                        <p id="high6"></p>
+                        <p id="low6"></p>
+                    </div>
+                    <div id="day7">
+                        <p id="date7"></p>
+                        <img id="ico7">
+                        <p id="high7"></p>
+                        <p id="low7"></p>
+                    </div>
+                </section>
             </section>
         </main>
 

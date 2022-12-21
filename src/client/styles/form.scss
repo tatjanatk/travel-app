@@ -1,8 +1,7 @@
 @import 'base';
 
 form {
-    box-shadow: 7px 7px $white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px;
     background-color: $lavender;
     display: flex;
@@ -17,6 +16,7 @@ input {
     display: block;
     margin: 0 auto;
     border-radius: 5px;
+    font-size: 15px;
 }
 
 #city {
@@ -28,8 +28,10 @@ input {
 }
 
 label {
-    width: 70%;
+    width: 50%;
     margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #submit {
@@ -37,8 +39,9 @@ label {
     border: 2px solid $dark-blue;
     border-radius: 5px;
     color: $white;
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 20px;
+    width: 10%;
 
     &:hover {
         background-color: $blue;
