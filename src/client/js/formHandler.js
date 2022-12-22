@@ -2,7 +2,7 @@ export function handleSubmit(event) {
     event.preventDefault();
 
     //get input
-    const city = document.getElementById('city').value.toString();
+    const city = document.getElementById("city").value.toString();
     const start = document.getElementById("start").value;
     const end = document.getElementById("end").value;
 
@@ -29,7 +29,7 @@ export const postData = async (url = '', data = {}) => {
       const newData = await response.json();
       Client.updateUI(newData);
     } catch (error) {
-      alert('Location not found!');
+      console.log('Location not found!');
     }
   }
 

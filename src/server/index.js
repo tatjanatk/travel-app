@@ -68,7 +68,7 @@ app.post("/apis", addData);
 
 
 // GET Pixabay Data
-const getImg = async (input) => {
+    const getImg = async (input) => {
     const location = input.location;
     const pixURL = "https://pixabay.com/api/?key=";
     const pixKey = process.env.PIXABAY_KEY;
@@ -85,7 +85,7 @@ const getImg = async (input) => {
 }
 
 // GET Geonames Data (lat, lon)
-const getLoc = async (input) => {
+    const getLoc = async (input) => {
     const location = input.location;
     const geoURL = "http://api.geonames.org/searchJSON?name=";
     const geoKey = process.env.GEO_KEY;
