@@ -21,7 +21,7 @@ This project allows you to enter a city you want to travel to and a date. The we
     ```
 9. build the project: `npm run build-prod`
 10. start a local server: `npm run start`
-11. open your browser and navigate to ***http://localhost:8081/***
+11. open your browser and navigate to ***http://localhost:3001/***
 
 ## other modes
 * `npm run test` - testing of some functions
