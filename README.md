@@ -26,3 +26,5 @@ This project allows you to enter a city you want to travel to and a date. The we
 ## other modes
 * `npm run test` - testing of some functions
 * `npm run build-dev` - development mode on ***http://localhost:8080/*** to start a live server to see changes without having to build the project again
+
+![example output](https://i.ibb.co/smh8bQZ/ka.jpg)
