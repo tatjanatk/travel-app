@@ -50,3 +50,21 @@ label {
         cursor: pointer;
     }
 }
+
+// small & medium screens
+@media (max-width: 1070px) {
+    form {
+        flex-direction: column;
+    }
+    label {
+        text-align: center;
+        margin-left: 0px;
+    }
+    #city {
+        width: 80%;
+    }
+    #submit {
+        width: auto;
+        margin: 0 auto;
+    }
+}
